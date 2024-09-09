@@ -159,11 +159,10 @@ Splash Screen → Onboarding Screen
 Onboarding Screen → Sign Up Screen or Login Screen
 Sign Up Screen → Home Screen
 Login Screen → Home Screen
-
 Home Screen → Product Details Screen, Cart Screen, or Profile Screen
-
 Product Details Screen → Cart Screen or Home Screen
 Cart Screen → Checkout Screen
+
 Checkout Screen → Order Tracking Screen
 Order Tracking Screen → Home Screen or Order History Screen
 Profile Screen → Settings Screen

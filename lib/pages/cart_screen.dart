@@ -1,6 +1,6 @@
 // lib/pages/cart_screen.dart
 import 'package:flutter/material.dart';
-import 'package:flutter_maps/pages/home_page.dart';
+import 'package:flutter_maps/pages/card_screen.dart';
 import 'package:flutter_maps/pages/profile_screen.dart';
 import '../common/app_color.dart';
 
@@ -14,7 +14,6 @@ class _CartScreenState extends State<CartScreen> with SingleTickerProviderStateM
   late Animation<Offset> _slideAnimation;
   bool _isLoading = true; // Loading state
   List<dynamic> _cartItems = []; // Cart items data
-  final String _defaultImage = 'assets/images/default_image.png'; // Path to your default image
 
   @override
   void initState() {
@@ -56,7 +55,7 @@ class _CartScreenState extends State<CartScreen> with SingleTickerProviderStateM
         },
         {
           "name": "Product 2",
-          "image": "invalid_url", // Invalid URL to simulate loading failure
+          "image": "https://via.placeholder.com/150",
           "price": 19.99,
         },
         {
@@ -71,6 +70,8 @@ class _CartScreenState extends State<CartScreen> with SingleTickerProviderStateM
 
   @override
   Widget build(BuildContext context) {
+    double totalPrice = _cartItems.fold(0, (sum, item) => sum + item['price']);
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Cart', style: TextStyle(color: AppColors.backgroundColor)),
@@ -86,6 +87,10 @@ class _CartScreenState extends State<CartScreen> with SingleTickerProviderStateM
             itemCount: _cartItems.length,
             itemBuilder: (context, index) {
               return Card(
+                elevation: 4,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
                 child: Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Row(
@@ -118,40 +123,45 @@ class _CartScreenState extends State<CartScreen> with SingleTickerProviderStateM
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: 'Cart',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
-        selectedItemColor: AppColors.primaryColor,
-        unselectedItemColor: Colors.grey,
-        onTap: (index) {
-          switch (index) {
-            case 0:
-              Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => HomeScreen()),
-              );
-              break;
-            case 1:
-            // Stay on Cart Screen
-              break;
-            case 2:
-              Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => ProfileScreen()),
-              );
-              break;
-          }
-        },
+      bottomNavigationBar: Container(
+        height: 70, // Height of the bottom bar
+        padding: EdgeInsets.symmetric(horizontal: 16.0),
+        decoration: BoxDecoration(
+          color: AppColors.primaryColor,
+          borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'Total: \$${totalPrice.toStringAsFixed(2)}',
+              style: TextStyle(
+                fontSize: 20,
+                color: AppColors.backgroundColor,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // Navigate to Checkout Screen
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => CheckoutScreen()),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColors.backgroundColor,
+                padding: EdgeInsets.symmetric(horizontal: 32.0, vertical: 16.0),
+              ),
+              child: Text(
+                'Checkout',
+                style: TextStyle(
+                  fontSize: 16.0,
+                  color: AppColors.primaryColor,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -163,11 +173,11 @@ class _CartScreenState extends State<CartScreen> with SingleTickerProviderStateM
       loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
         if (loadingProgress == null) return child; // Image loaded
         return Center(
-            child: CircularProgressIndicator(
-              value: loadingProgress.expectedTotalBytes != null
-                  ? loadingProgress.cumulativeBytesLoaded / (loadingProgress.expectedTotalBytes ?? 1)
-                  : null,
-            )
+          child: CircularProgressIndicator(
+            value: loadingProgress.expectedTotalBytes != null
+                ? loadingProgress.cumulativeBytesLoaded / (loadingProgress.expectedTotalBytes ?? 1)
+                : null,
+          ),
         );
       },
       errorBuilder: (context, error, stackTrace) {
