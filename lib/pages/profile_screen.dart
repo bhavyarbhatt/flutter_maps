@@ -106,6 +106,7 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
                   style: TextStyle(
                     fontSize: 16.0,
                     color: AppColors.backgroundColor,
+                    
                   ),
                 ),
               ),
