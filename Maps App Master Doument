@@ -1,0 +1,176 @@
+	Hi i am flutter mobile app developer i wanted to create demo app for maps to add in my profolio i wanted to create like some product delivery from open point to other point to start and stop and show in time line like this app to create 
+
+Take 
+
+Here's a list of screens for a comprehensive on-demand delivery app, along with their interconnections and routing:
+
+1. **Splash Screen**
+   - Displays the app's logo and loads necessary data
+   - Redirects to either the Onboarding Screen or Home Screen based on user's login status
+
+2. **Onboarding Screen**
+   - Introduces the app's features and benefits
+   - Provides options to sign up or log in
+   - Redirects to Sign Up or Login Screen
+
+3. **Sign Up Screen**
+   - Allows users to create an account using email, phone number, or social media
+   - Validates user input and sends verification code (if applicable)
+   - Redirects to Home Screen upon successful registration
+
+4. **Login Screen**
+   - Enables users to log in using registered credentials
+   - Validates user input and checks login status
+   - Redirects to Home Screen upon successful login
+
+5. **Home Screen**
+   - Displays featured products/services, categories, and a search bar
+   - Allows navigation to Product Details Screen, Cart Screen, and Profile Screen
+   - Provides access to the drawer menu for additional options
+
+6. **Drawer Menu**
+   - Accessible from the Home Screen
+   - Includes links to Order History, Settings, and Logout
+   - Redirects to respective screens when an option is selected
+
+7. **Product Details Screen**
+   - Shows detailed information about a specific product or service
+   - Allows users to add the item to the cart or place an order directly
+   - Redirects to Cart Screen when "Add to Cart" is clicked
+
+8. **Cart Screen**
+   - Displays the items added to the cart with quantities and prices
+   - Calculates the total amount, including taxes and delivery fees
+   - Allows applying promo codes and proceeding to the Checkout Screen
+
+9. **Checkout Screen**
+   - Enables users to enter or select a delivery address
+   - Provides payment options, including credit/debit cards, digital wallets, and cash on delivery
+   - Displays the order summary and allows placing the order
+   - Redirects to Order Tracking Screen upon successful order placement
+
+10. **Order Tracking Screen**
+    - Shows the current status of the order and a delivery timeline
+    - Provides information about the delivery person and their location (real-time tracking)
+    - Allows users to contact the delivery person or customer support if needed
+
+11. **Profile Screen**
+    - Displays the user's profile information and order history
+    - Enables updating profile details and preferences
+    - Provides access to the Settings Screen
+
+12. **Settings Screen**
+    - Allows users to change their password, notification preferences, and other settings
+    - Provides a link to the Help and Support Screen
+
+13. **Help and Support Screen**
+    - Offers various support options, such as FAQs, contact information, and a feedback form
+    - Redirects users to the appropriate support channel based on their query
+
+14. **Admin Dashboard**
+    - Accessible to business owners and managers
+    - Provides an overview of orders, products/services, users, and analytics
+    - Allows managing various aspects of the business, such as adding new products or updating user information
+
+The app's navigation follows a hierarchical structure, with the Home Screen serving as the main entry point. Users can navigate to various screens from the Home Screen, such as the Product Details Screen, Cart Screen, and Profile Screen. The Drawer Menu provides access to additional options like Order History and Settings.
+
+The Sign Up and Login Screens are used for user authentication, while the Onboarding Screen introduces the app's features to new users. The Order Tracking Screen is accessed after placing an order, allowing users to monitor their delivery status.
+
+The Admin Dashboard is a separate interface for business owners, providing comprehensive management capabilities for orders, products/services, users, and analytics.
+
+By following this screen structure and navigation flow, you can create a well-organized and intuitive on-demand delivery app that offers a seamless user experience.
+
+
+
+
+
+
+
+
+Colot Theme
+
+Based on the design principles and examples from the top on-demand delivery apps, here are some recommendations for the color scheme and theme to create an attractive and professional-looking app for your portfolio:
+
+## Color Scheme
+
+- Use a combination of bright, appealing colors that align with your brand identity and create a positive emotional response. Some popular color combinations include:
+  - Azure blue and light red[2]
+  - White backgrounds with black text for contrast and legibility[2]
+
+- Avoid using the typical red-yellow combo that many food delivery apps use. Choose a unique color palette that helps your app stand out[2].
+
+- Colors like blue instill trust and reliability, while reds can stimulate hunger. Balance them to create an effective color scheme[2].
+
+## Typography
+
+- Use an easy-to-read, legible font that complements your app's visual style. A custom version of the Rubik typeface, which is a slightly rounded sans-serif font, works well for food delivery apps[2].
+
+- Ensure the typography is large enough to be easily readable on small screens.
+
+- Maintain consistent typography throughout the app for a professional look.
+
+## Theme and Design
+
+- Opt for a clean, minimalist design with plenty of white space. Avoid clutter to make the app easy to navigate[2].
+
+- Use high-quality, appetizing images of food to make the app visually appealing and stimulate users' appetites[1][2].
+
+- Incorporate subtle animations and visual cues to guide users through the interface and provide feedback on their actions. However, use these sparingly to avoid slowing down the app's performance[1].
+
+- Maintain consistent branding throughout the app, including the logo, colors, and imagery. This creates familiarity and trust with users[1].
+
+- Design the app with thumb-friendly touch targets that are easy to tap, especially for key actions like placing orders[1].
+
+By following these design principles and drawing inspiration from the top on-demand delivery apps, you can create a visually appealing and user-friendly app that showcases your skills as a Flutter developer. The combination of a thoughtful color scheme, legible typography, and clean, consistent design will help your app stand out in your portfolio.
+
+Citations:
+[1] https://www.valueappz.com/blog/design-tips-for-on-demand-delivery-app-development
+[2] https://www.designrush.com/best-designs/apps/food-delivery-app-design
+[3] https://www.cronj.com/blog/on-demand-delivery-app/
+[4] https://uxplanet.org/15-best-delivery-app-examples-templates-in-2021-dbc23cc46b34?gi=e2eb9c25318a
+[5] https://looka.com/blog/food-delivery-logo/
+[6] https://www.uptech.team/blog/build-on-demand-delivery-app
+[7] https://www.spaceotechnologies.com/blog/how-to-make-on-demand-delivery-app/
+[8] https://www.appypie.com/on-demand-delivery-app-builder
+
+
+Primary Color: Azure Blue (#007BFF)
+Accent Color: Vibrant Orange (#FF5733)
+Secondary Color: Fresh Green (#28A745)
+Background Color: White (#FFFFFF)
+Text Color: Soft Gray (#6C757D)
+Highlight Color: Warm Yellow (#FFC107)
+
+
+
+
+follow the route you had provide create
+
+create screen with navigation planning of other screens in navigation and user  colur code and add cool animtion at screen statup which look like screen is fast 
+
+
+given me roadmap of screen to go like splash _ screen --> after which screen
+
+from start to end screen give me
+
+
+
+Splash Screen → Onboarding Screen
+Onboarding Screen → Sign Up Screen or Login Screen
+Sign Up Screen → Home Screen
+Login Screen → Home Screen
+
+Home Screen → Product Details Screen, Cart Screen, or Profile Screen
+
+Product Details Screen → Cart Screen or Home Screen
+Cart Screen → Checkout Screen
+Checkout Screen → Order Tracking Screen
+Order Tracking Screen → Home Screen or Order History Screen
+Profile Screen → Settings Screen
+Settings Screen → Help and Support Screen
+
+
+create Cart Screen, 
+create like when screen open up animation should show open up is very fast  and if humbar , bottombar , appbar action is required then also add it and create according to navigation
+
+
