@@ -117,67 +117,91 @@
 
 
 // lib/pages/order_tracking_screen.dart
-import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-class OrderTrackingScreen extends StatefulWidget {
+
+
+// import 'package:flutter/material.dart';
+// import 'package:flutter_maps/env.dart';
+// import 'package:ola_map_flutter/ola_map_flutter.dart';
+// import 'dart:async';
+//
+// class MyApp extends StatefulWidget {
+//   const MyApp({super.key});
+//
+//   @override
+//   State<MyApp> createState() => _MyAppState();
+// }
+//
+// class _MyAppState extends State<MyApp> {
+//   final Completer<OlaMapController> _controller = Completer<OlaMapController>();
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       home: Scaffold(
+//           body: OlaMap(
+//               showCurrentLocation: false,
+//               showZoomControls: true,
+//               showMyLocationButton: true,
+//               apiKey: '${APIEnv.olaMapsApiKey}',
+//               onPlatformViewCreated: (OlaMapController controller) {
+//                 _controller.complete(controller);
+//               })),
+//     );
+//   }
+// }
+
+
+
+import 'package:flutter_maps/env.dart';
+
+import 'package:flutter/material.dart';
+import 'dart:async';
+
+import 'package:ola_map_flutter/ola_map_flutter.dart';
+
+
+class MyMapWidget extends StatefulWidget {
   @override
-  _OrderTrackingScreenState createState() => _OrderTrackingScreenState();
+  _MyMapWidgetState createState() => _MyMapWidgetState();
 }
 
-class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
-  late GoogleMapController mapController;
+class _MyMapWidgetState extends State<MyMapWidget> {
+  late OlaMapController _mapController;
 
-  final LatLng _center = const LatLng(45.521563, -122.677433);
+  @override
+  void initState() {
+    super.initState();
+    _mapController = OlaMapController();
 
-  void _onMapCreated(GoogleMapController controller) {
-    mapController = controller;
+    // Load the API key from your .env file
+    dotenv.load(); // Load the .env file
+    final apiKey = APIEnv.olaMapsApiKey; // Assuming the API key is stored under the 'API_KEY' environment variable
+
+    // Initialize Ola Maps with the API key
+    OlaMaps.initialize(
+      apiKey: apiKey,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Order Tracking'),
+    return OlaMap(
+      initialCameraPosition: CameraPosition(
+        target: LatLng(21.1702, 72.8311), // Replace with your desired location
+        zoom: 15.0,
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: GoogleMap(
-              onMapCreated: _onMapCreated,
-              initialCameraPosition: CameraPosition(
-                target: _center,
-                zoom: 11.0,
-              ),
-            ),
-          ),
-          Expanded(
-            child: Container(
-              color: Colors.white,
-              child: ListView(
-                children: [
-                  ListTile(
-                    title: Text('Order ID'),
-                    subtitle: Text('123456'),
-                  ),
-                  ListTile(
-                    title: Text('Status'),
-                    subtitle: Text('In Transit'),
-                  ),
-                  ListTile(
-                    title: Text('Estimated Delivery'),
-                    subtitle: Text('June 1, 2023'),
-                  ),
-                  ListTile(
-                    title: Text('Current Location'),
-                    subtitle: Text('New York, NY'),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
+      onMapCreated: (OlaMapController controller) {
+        _mapController = controller;
+      },
+      markers: {
+        Marker(
+          markerId: MarkerId('marker_1'),
+          position: LatLng(21.1702, 72.8311),
+          infoWindow: InfoWindow(title: 'My Location', snippet: 'This is my location'),
+        ),
+      },
     );
   }
 }

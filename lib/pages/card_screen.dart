@@ -77,9 +77,10 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
           child: ElevatedButton(
             onPressed: () {
               // Process payment here
-              Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => OrderTrackingScreen()),
-              );
+              // Navigator.of(context).pushReplacement(
+                // MaterialPageRoute(builder: (context) => OrderTrackingScreen()),
+                // MaterialPageRoute(builder: (context) => MyApp()),
+              // );
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: AppColors.primaryColor,

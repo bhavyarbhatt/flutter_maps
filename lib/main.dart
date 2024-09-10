@@ -1,10 +1,16 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_maps/pages/onBorading_page.dart';
+// import 'package:ola_map_flutter/ola_map_flutter.dart';
 
 import 'common/app_color.dart';
 
 void main() {
+  // WidgetsFlutterBinding.ensureInitialized();
+  // // await OlaMaps.initialize(
+  // //   apiKey: 'your_ola_maps_api_key', // Replace with your Ola Maps API key
+  // // );
+
   runApp(MyApp());
 }
 
